@@ -14,8 +14,8 @@ test('Rahul shetty logout Link Visibility test case',async({page})=>{
     const browser=await chromium.launch()
     const context=await browser.newContext()
     await page.goto('https://rahulshettyacademy.com/client/')
-    await page.locator('#userEmail').type('bhushan.trivedi@meetanshi.com')
-    await page.locator('#userPassword').type('Ganesh385')
+    await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
+    await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
     await expect (page.getByText('Sign Out')).toBeVisible()
     await context.close()
@@ -26,8 +26,8 @@ test('Rahul shetty logout Link Visibility test case',async({page})=>{
 test('Rahul shetty logout Link Click test case',async({page})=>{
     const browser=await chromium.launch()
     await page.goto('https://rahulshettyacademy.com/client/')
-    await page.locator('#userEmail').type('bhushan.trivedi@meetanshi.com')
-    await page.locator('#userPassword').type('Ganesh385')
+    await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
+    await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
     await page.getByText('Sign Out').click()
     await browser.close()
@@ -37,8 +37,8 @@ test('Rahul shetty logout Link Click test case',async({page})=>{
 test('Verify Login Success Message Test case',async({page})=>{
     const browser=await chromium.launch()
     await page.goto('https://rahulshettyacademy.com/client/')
-    await page.locator('#userEmail').type('bhushan.trivedi@meetanshi.com')
-    await page.locator('#userPassword').type('Ganesh385')
+    await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
+    await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
     await expect(page.locator('.toast-container')).toContainText('Login Successfully')
     await browser.close()
@@ -48,8 +48,8 @@ test('Verify Login Success Message Test case',async({page})=>{
 test('Verify Logout Success Message Test case',async({page})=>{
     const browser=await chromium.launch()
     await page.goto('https://rahulshettyacademy.com/client/')
-    await page.locator('#userEmail').type('bhushan.trivedi@meetanshi.com')
-    await page.locator('#userPassword').type('Ganesh385')
+    await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
+    await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
     await page.getByText('Sign Out').click()
     await expect(page.locator('.toast-container')).toContainText('Logout Successfully')
@@ -60,8 +60,8 @@ test('Verify Logout Success Message Test case',async({page})=>{
 test('Check Logo Text Visible or Not',async({page})=>{
     const browser=await chromium.launch()
     await page.goto('https://rahulshettyacademy.com/client/')
-    await page.locator('#userEmail').type('bhushan.trivedi@meetanshi.com')
-    await page.locator('#userPassword').type('Ganesh385')
+    await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
+    await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
     await expect(page.getByRole('heading',{name:'Automation'})).toBeVisible()
     await expect(page.getByText('Automation Practice')).toBeVisible()
@@ -75,7 +75,7 @@ test('@Web Client App login', async ({ page }) => {
     const products = page.locator(".card-body");
     await page.goto("https://rahulshettyacademy.com/client");
     await page.locator("#userEmail").fill(email);
-    await page.locator("#userPassword").type("Iamking@000");
+    await page.locator("#userPassword").fill("Iamking@000");
     await page.locator("[value='Login']").click();
     await page.waitForLoadState('networkidle');
     await page.locator(".card-body b").first().waitFor();
@@ -98,7 +98,7 @@ test('@Web Client App login', async ({ page }) => {
     expect(bool).toBeTruthy();
     await page.locator("text=Checkout").click();
   
-    await page.locator("[placeholder*='Country']").type("ind");
+    await page.locator("[placeholder*='Country']").fill("ind");
   
     const dropdown = page.locator(".ta-results");
     await dropdown.waitFor();
@@ -111,7 +111,7 @@ test('@Web Client App login', async ({ page }) => {
        }
     }
   
-    expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
+    expect(page.locator(".user__name [fill='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
     const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
