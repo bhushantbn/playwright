@@ -1,5 +1,5 @@
-// @ts-check
-const { test, expect } = require('@playwright/test');
+import{test, expect,chromium} from '@playwright/test';
+
 const AxeBuilder = require('@axe-core/playwright').default; // 1
 test.describe('homepage', () => { // 2
     test('should not have any automatically detectable accessibility issues', async ({ page }) => {

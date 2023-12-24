@@ -1,6 +1,4 @@
-// @ts-check
-
-const { test, expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test"
 
 test("Test basic drag and drop Locator", async ({ page }) => {
   await page.goto("https://commitquality.com/practice-drag-and-drop")

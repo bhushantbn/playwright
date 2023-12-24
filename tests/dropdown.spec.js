@@ -1,5 +1,4 @@
-// @ts-nocheck
-const {test,expect}=require("@playwright/test");
+import { test, expect } from '@playwright/test';
 
 test('Verify Dropdown',async({page})=>{
     await page.goto('https://freelance-learn-automation.vercel.app/signup/')
