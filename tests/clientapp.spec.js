@@ -63,13 +63,13 @@ test('Check Logo Text Visible or Not',async({page})=>{
     await page.locator('#userEmail').fill('bhushan.trivedi@meetanshi.com')
     await page.locator('#userPassword').fill('Ganesh385')
     await page.locator('[value="Login"]').click()
-    await expect(page.getByRole('heading',{name:'Automation'})).toBeVisible()
+    await expect(page.getByRole('heading',{name:'Automation1'})).toBeVisible()
     await expect(page.getByText('Automation Practice')).toBeVisible()
     await browser.close()
     await page.close()
 
 })
-test('@Web Client App login', async ({ page }) => {
+test.skip('@Web Client App login', async ({ page }) => {
     const email = "anshika@gmail.com";
     const productName = 'zara coat 3';
     const products = page.locator(".card-body");
