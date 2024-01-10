@@ -10,7 +10,7 @@ test.beforeAll(async({browser})=>{
 })
 test.afterAll(async()=>{
     await page.locator('#logout2').click()
-   
+    await page.close()
 })
 test('Home page Test',async()=>{
     await page.goto('https://demoblaze.com/')
