@@ -94,7 +94,7 @@ test("Verify Login Modal-Popup Visibility", async ({ page }) => {
     // If the anchor link is found within the timeout, the test passes
     console.log("Anchor link is present on the page.");
 
-    await anchorLink.click();
+    await anchorLink.click()
     // Listen for DOM changes to detect modal appearance after clicking the anchor link
     const modalSelector = "#logInModal";
 
@@ -119,7 +119,7 @@ test("Verify Login Modal-Popup Visibility", async ({ page }) => {
 test("Verify Login Functionality", async ({ page }) => {
   await page.goto("https://demoblaze.com/index.html");
 
-  await page.click("id=login2");
+  await page.click("id=login2")
 
   await page.fill("#loginusername", "bhushantbn");
   await page.fill("input[id='loginpassword']", "bhushan123");
@@ -127,20 +127,37 @@ test("Verify Login Functionality", async ({ page }) => {
   await page.click("//button[normalize-space()='Log in']");
 
   const logoutLink = await page.locator("//a[normalize-space()='Log out']");
-  await expect(logoutLink).toBeVisible();
+  await expect(logoutLink).toBeVisible()
 
   await page.close();
 });
 test("Verify Contact Us modal Visibility", async ({ page }) => {
-
-  await page.goto("https://demoblaze.com/index.html")
-  await page.click('a[data-target="#exampleModal"]')
-  await page.waitForSelector('.modal-content',{state:'visible'})
-})
+  await page.goto("https://demoblaze.com/index.html");
+  await page.click('a[data-target="#exampleModal"]');
+  await page.waitForSelector(".modal-content", { state: "visible" });
+});
 test("Verify Contact Us Modal Title", async ({ page }) => {
-  await page.goto("https://demoblaze.com/index.html")
-  await page.click('a[data-target="#exampleModal"]')
-  await page.waitForSelector('.modal-content',{state:'visible'})
-  await expect(page.locator('.modal-title').getByText('Contact Us')).toBeVisible()
-
-})
+  await page.goto("https://demoblaze.com/index.html");
+  await page.click('a[data-target="#exampleModal"]');
+  await page.waitForSelector(".modal-content", { state: "visible" });
+  await expect(
+    page.locator(".modal-title").getByText("Contact Us")
+  ).toBeVisible()
+});
+test("Playwright Special locators", async ({ page }) => {
+  await page.goto("https://rahulshettyacademy.com/angularpractice/");
+  await page.getByLabel("Check me out if you Love IceCreams!").click();
+  await page.getByLabel("Employed").check();
+  await page.getByLabel("Gender").selectOption("Female");
+  await page.getByPlaceholder("Password").fill("abc123");
+  await page.getByRole("button", { name: "Submit" }).click();
+  await page
+    .getByText("Success! The Form has been submitted successfully!.")
+    .isVisible()
+  await page.getByRole("link", { name: "Shop" }).click();
+  await page
+    .locator("app-card")
+    .filter({ hasText: "Nokia Edge" })
+    .getByRole("button")
+    .click()
+});
