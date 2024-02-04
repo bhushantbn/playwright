@@ -1,4 +1,6 @@
 import {test,expect} from '@playwright/test'
+import { json } from 'node:stream/consumers'
+import { join } from 'path'
 var userid;
 test.describe('MockAPI Testcases',()=>{
     const apiURL="https://reqres.in/api/users?page=2"
@@ -6,7 +8,7 @@ test.describe('MockAPI Testcases',()=>{
     test('get User',async({request})=>{
      const res=await request.get(apiURL)
         console.log(await res.json());
-        expect(res.status()).toBe(200)  
+        expect(res.status()).toBe(200)
     })
     test("Create User",async({request})=>{
         const res=await request.post("https://reqres.in/api/users",{
