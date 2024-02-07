@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-      - main
+      - bhushantbn-patch-1
 
 jobs:
   e2e-tests:
