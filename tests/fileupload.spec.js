@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("check single File upload", async ({ page }) => {
+test.skip("check single File upload", async ({ page }) => {
   await page.goto("https://www.foundit.in/");
   await page.waitForSelector(".mqfihd-upload");
   await page.locator(".mqfihd-upload").click();
@@ -10,7 +10,7 @@ test("check single File upload", async ({ page }) => {
   await page.waitForTimeout(5000);
 });
 
-test.only("check mulitple file upload", async ({ page }) => {
+test.skip("check mulitple file upload", async ({ page }) => {
   await page.goto("https://davidwalsh.name/demo/multiple-file-upload.php");
   await page
     .locator("#filesToUpload")
