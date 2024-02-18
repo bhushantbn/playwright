@@ -44,3 +44,6 @@ test('@Client App login', async ({ page }) => {
    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
    console.log(orderId);
 })
+test('Place the Order',async({page})=>{
+   const apiUtils=new apiUtils(apiContext)
+})

@@ -1,6 +1,4 @@
-exports.CartPage=
-
-class CartPage{
+export class CartPage{
 
     constructor(page) {
       this.page=page

@@ -19,7 +19,7 @@ test("Login Page object model",async({page})=>{
     await page.waitForTimeout(3000)
     await home.gotoCart()
 
-    // //CartPage
+    //CartPage
     const cartPage=new CartPage(page)
     await page.waitForTimeout(3000)
     const status=await cartPage.checkProductInCart('Nexus 6')

@@ -1,6 +1,4 @@
-exports.LoginPage=
-
-class LoginPage{
+export class LoginPage{
     constructor(page) {
         this.page=page;
         this.loginLink="#login2";
