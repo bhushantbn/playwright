@@ -1,7 +1,7 @@
 import { expect,test } from "@playwright/test";
 
 test.describe("Home page api testcases", () => {
-    const url="https://lara.meetanshi.org/festival/api/home"
+    const url="https://www.google.com/festival/api/home"
     test("get home page API data status", async ({request}) => {
         const response=await request.get(url)
         expect(response.status()).toBe(200)
@@ -62,7 +62,7 @@ test.describe("Home page api testcases", () => {
     })
 })
 test.describe("Category page api testcases", () => {
-    const url= "https://lara.meetanshi.org/festival/api/categoryDetails"
+    const url= "https://www.google.com/festival/api/categoryDetails"
     test("Post Category details API", async ({context}) => {
         const response=await context.request.post(url,{
             form:{
